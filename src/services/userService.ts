@@ -24,10 +24,9 @@ async function signUp(createUserData: CreateUserData) {
 
 async function signIn(loginData: CreateUserData) {
   const user = await getUserOrFail(loginData);
-
   const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!);
 
-  return token;
+  return { token };
 }
 
 async function findById(id: number) {
@@ -39,6 +38,7 @@ async function findById(id: number) {
 
 async function getUserOrFail(loginData: CreateUserData) {
   const user = await userRepository.findByEmail(loginData.email);
+
   if (!user) throw unauthorizedError("Invalid credentials");
 
   const isPasswordValid = bcrypt.compareSync(loginData.password, user.password);
@@ -47,8 +47,15 @@ async function getUserOrFail(loginData: CreateUserData) {
   return user;
 }
 
+async function getUserId(loginData: string) {
+  const user = await userRepository.findByEmail(loginData);
+
+  return user;
+}
+
 export default {
   signUp,
   signIn,
   findById,
+  getUserId,
 };

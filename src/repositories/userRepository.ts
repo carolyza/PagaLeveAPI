@@ -12,6 +12,7 @@ async function findByEmail(email: string) {
 
 async function insert(createUserData: CreateUserData) {
   const users = db.collection("users");
+
   return users.insertOne({ ...createUserData });
 }
 
