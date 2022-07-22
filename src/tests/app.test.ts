@@ -1,18 +1,15 @@
 import * as signInControllerTest from "./controllers/signInController.js";
 import * as signUpControllerTest from "./controllers/signUpController.js";
+import * as listControllerTest from "./controllers/listController.js";
 import db from "../database.js";
 import mongoClient from "../database.js";
 
-beforeEach(deleteAll);
+beforeEach(() => deleteAll());
 
 async function deleteAll() {
   await db.collection("list").deleteMany({});
   await db.collection("users").deleteMany({});
 }
-
-// afterAll(async () => {
-//   await mongoClient.close();
-// });
 
 describe("POST /sign-up", () => {
   it(
@@ -50,10 +47,24 @@ describe("POST /sign-in", () => {
   );
 });
 
-// function beforeEach(truncateAll: () => Promise<void>) {
-//   throw new Error("Function not implemented.");
-// }
+describe("GET /customers/:user", () => {
+  it("returns 200 given valid token", listControllerTest.valid);
+});
 
-// function afterAll(arg0: () => Promise<void>) {
-//   throw new Error("Function not implemented.");
-// }
+describe("DELETE /delete/:id", () => {
+  it("returns 200 when delete is successful", listControllerTest.deleteContact);
+
+  it("returns 500 given inexistent id", listControllerTest.wrongContactId);
+});
+
+describe("PUT /update/:id", () => {
+  it("returns 200 when update is successful", listControllerTest.updateContact);
+
+  it("returns 500 given inexistent id", listControllerTest.wrongUpdateId);
+});
+
+describe("POST /create", () => {
+  it("returns 201 when create new contact", listControllerTest.createUserList);
+});
+
+afterAll(() => deleteAll());

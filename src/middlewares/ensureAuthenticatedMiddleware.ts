@@ -17,9 +17,10 @@ export async function ensureAuthenticatedMiddleware(
   if (!token) throw unauthorizedError("Missing token");
 
   try {
-    const { userId } = jwt.verify(token, process.env.JWT_SECRET) as {
+    const { userId } = jwt.verify(token, process.env.JWT_SECRET!) as {
       userId: number;
     };
+
     const user = await userService.findById(userId);
     res.locals.user = user;
 

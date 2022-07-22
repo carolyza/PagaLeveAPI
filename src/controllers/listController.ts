@@ -19,8 +19,6 @@ export async function updateList(req: Request, res: Response) {
 export async function deleteContact(req: Request, res: Response) {
   const id = req.params;
 
-  console.log(id);
-
   const list = await listService.deleteContact(id);
   res.send(list);
 }
