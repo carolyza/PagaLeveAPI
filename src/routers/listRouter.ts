@@ -8,7 +8,7 @@ import {
 const listRouter = Router();
 
 listRouter.get("/customers/:user", getList);
-listRouter.put("/update", updateList);
+listRouter.put("/update/:id", updateList);
 listRouter.delete(`/delete/:id`, deleteContact);
 
 export default listRouter;

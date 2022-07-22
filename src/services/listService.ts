@@ -17,8 +17,8 @@ async function getList(user: any) {
   return list;
 }
 
-async function updateList(user: number, id: number, data: any) {
-  const list = await listRepository.update(user, id, data);
+async function updateList(id: string, userData: any) {
+  const list = await listRepository.update(id, userData);
   if (!list) throw notFoundError("Contact list not found");
 
   return list;

@@ -8,11 +8,17 @@ export async function findById(user: any) {
   return list.find({ userId: userId }).toArray();
 }
 
-export async function update(user: number, id: number, data: any) {
+export async function update(id: string, userData: any) {
   const list = db.collection("list");
   return list.updateOne(
-    { _id: id, _userId: user },
-    { $set: { name: data.name, phone: data.phone, email: data.email } }
+    { _id: new ObjectId(id) },
+    {
+      $set: {
+        name: userData.name,
+        phone: userData.phone,
+        email: userData.email,
+      },
+    }
   );
 }
 

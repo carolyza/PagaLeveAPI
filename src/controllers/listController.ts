@@ -10,8 +10,9 @@ export async function getList(req: Request, res: Response) {
 }
 
 export async function updateList(req: Request, res: Response) {
-  const { user, id, data } = req.body;
-  const list = await listService.updateList(user, id, data);
+  const userData = req.body;
+  const id = req.params.id;
+  const list = await listService.updateList(id, userData);
   res.send(list);
 }
 

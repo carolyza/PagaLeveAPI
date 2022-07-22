@@ -55,6 +55,6 @@ export async function login() {
   const result = await supertest(app).post("/sign-in").send(body);
 
   expect(result.status).toEqual(200);
-  expect(typeof result.body.token).toEqual("string");
-  expect(result.body.token.length).toBeGreaterThan(0);
+  expect(typeof result.body.token.token).toEqual("string");
+  expect(result.body.token.token.length).toBeGreaterThan(0);
 }
