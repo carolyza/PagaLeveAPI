@@ -4,7 +4,6 @@ import {
   updateList,
   deleteContact,
 } from "../controllers/listController.js";
-import { ensureAuthenticatedMiddleware } from "../middlewares/ensureAuthenticatedMiddleware.js";
 
 const listRouter = Router();
 
