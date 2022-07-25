@@ -32,6 +32,8 @@ export async function getCustomerId(phone: string) {
     phone: phone,
   });
 
+  console.log(user!._id);
+
   return user!._id;
 }
 

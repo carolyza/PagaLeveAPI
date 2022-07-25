@@ -40,10 +40,11 @@ export async function updateContact() {
   const userInfo = listFactory.formatBodyCreateContact();
   const user = await listFactory.createUserList(userInfo);
   const id = await listFactory.getCustomerId(userInfo.phone);
-  const contactId = id.toString();
-  const newInfo = list;
+  console.log(list);
 
-  const promise = await supertest(app).put(`/update/${contactId}`).send(list);
+  const contactId = id.toString();
+
+  const promise = await supertest(app).put(`/update/${id}`).send(list);
   expect(promise.status).toEqual(200);
 }
 

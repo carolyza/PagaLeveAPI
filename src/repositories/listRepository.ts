@@ -27,8 +27,15 @@ export async function deleteContact(id: any) {
   return list.deleteOne({ _id: new ObjectId(id.id) });
 }
 
+export async function findOneById(id: string) {
+  const _id = new ObjectId(id);
+  const list = db.collection("list");
+  return list.findOne({ _id });
+}
+
 export default {
   findById,
   update,
   deleteContact,
+  findOneById,
 };

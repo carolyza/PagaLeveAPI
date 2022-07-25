@@ -19,14 +19,18 @@ async function getList(user: any) {
 
 async function updateList(id: string, userData: any) {
   const list = await listRepository.update(id, userData);
-  if (!list) throw notFoundError("Contact list not found");
+
+  if (!list || list.matchedCount === 0)
+    throw notFoundError("Contact list not found");
 
   return list;
 }
 
 async function deleteContact(id: any) {
   const list = await listRepository.deleteContact(id);
-  if (!list) throw notFoundError("Contact not found");
+
+  if (!list || list.deletedCount === 0)
+    throw notFoundError("Contact not found");
 
   return list;
 }

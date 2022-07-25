@@ -22,14 +22,3 @@ export async function deleteContact(req: Request, res: Response) {
   const list = await listService.deleteContact(id);
   res.send(list);
 }
-
-// export async function getUser(req: Request, res: Response) {
-//   const authorization = req.headers.authorization;
-//   const token = authorization?.replace("Bearer ", "");
-
-//   const session = await listService.findSession({ token });
-
-//   const user = await listService.findUser({ _id: session.userId });
-
-//   res.send(user);
-// }

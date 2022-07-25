@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import type { WithId, Document, InsertOneResult } from "mongodb";
+
 import userRepository from "../repositories/userRepository.js";
 import {
   conflictError,
@@ -9,10 +11,10 @@ import {
 } from "../utils/errorUtils.js";
 dotenv.config();
 
-export type CreateUserData = {
+export interface CreateUserData extends Document {
   email: string;
   password: string;
-};
+}
 
 async function signUp(createUserData: CreateUserData) {
   const existingUser = await userRepository.findByEmail(createUserData.email);
