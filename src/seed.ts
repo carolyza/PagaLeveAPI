@@ -15,7 +15,7 @@ async function seed() {
   await db.collection("users").insertMany(users);
 
   await db.collection("list").deleteMany({});
-  await db.collection("list").insertMany(list);
+  await db.collection("list").insertOne(list);
 
   mongoClient.close();
 }

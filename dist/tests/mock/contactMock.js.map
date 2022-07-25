@@ -1,0 +1,1 @@
+{"version":3,"file":"contactMock.js","sourceRoot":"","sources":["../../../src/tests/mock/contactMock.ts"],"names":[],"mappings":"AAAA,MAAM,IAAI,GAAG;IACX,MAAM,EAAE,UAAU;IAClB,IAAI,EAAE,WAAW;IACjB,KAAK,EAAE,iBAAiB;IACxB,KAAK,EAAE,YAAY;CACpB,CAAC;AAEF,OAAO,EAAE,IAAI,EAAE,CAAC"}
