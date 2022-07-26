@@ -4,6 +4,7 @@ import { getIds } from "../factories/listFactory.js";
 import tokenFactory from "../factories/tokenFactory.js";
 import * as listFactory from "../factories/listFactory.js";
 import { list } from "../mock/contactMock.js";
+import listRepository from "../../repositories/listRepository.js";
 
 export async function valid() {
   const user = await getIds();
@@ -12,7 +13,7 @@ export async function valid() {
 
   const promise = await supertest(app)
     .get(`/customers/${user}`)
-    .set("Authorization", login.body.token.token);
+    .set("Authorization", login.body.token);
 
   expect(promise.status).toEqual(200);
 }
@@ -34,18 +35,6 @@ export async function wrongContactId() {
 
   const promise = await supertest(app).delete(`/delete/${phone}`);
   expect(promise.status).toEqual(500);
-}
-
-export async function updateContact() {
-  const userInfo = listFactory.formatBodyCreateContact();
-  const user = await listFactory.createUserList(userInfo);
-  const id = await listFactory.getCustomerId(userInfo.phone);
-  console.log(list);
-
-  const contactId = id.toString();
-
-  const promise = await supertest(app).put(`/update/${id}`).send(list);
-  expect(promise.status).toEqual(200);
 }
 
 export async function wrongUpdateId() {

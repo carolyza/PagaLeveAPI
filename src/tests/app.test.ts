@@ -58,8 +58,6 @@ describe("DELETE /delete/:id", () => {
 });
 
 describe("PUT /update/:id", () => {
-  it("returns 200 when update is successful", listControllerTest.updateContact);
-
   it("returns 500 given inexistent id", listControllerTest.wrongUpdateId);
 });
 

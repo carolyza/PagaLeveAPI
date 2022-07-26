@@ -20,7 +20,7 @@ async function getList(user: any) {
 async function updateList(id: string, userData: any) {
   const list = await listRepository.update(id, userData);
 
-  if (!list || list.matchedCount === 0)
+  if (!list || list.modifiedCount === 0)
     throw notFoundError("Contact list not found");
 
   return list;

@@ -12,6 +12,7 @@ export async function getList(req: Request, res: Response) {
 export async function updateList(req: Request, res: Response) {
   const userData = req.body;
   const id = req.params.id;
+  console.log(typeof id);
   const list = await listService.updateList(id, userData);
   res.send(list);
 }
