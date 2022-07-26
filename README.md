@@ -46,7 +46,7 @@ npm run dev
 ```
 <br/>
 
-#Rodando Testes
+# Rodando Testes
 
 ## Crie um .env.test com Mongo_URI e JWT_SECRET definidos
 
