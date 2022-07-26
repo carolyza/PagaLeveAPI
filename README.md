@@ -16,6 +16,18 @@ https://paga-leve-front-git-main-carolyza.vercel.app/
 
 <br/>
 
+## Tecnologias
+
+<div align="center">
+  <img src="https://img.shields.io/badge/-Typescript-&?style=for-the-badge&logo=typescript&color=black" alt="React logo" />
+  <img src="https://img.shields.io/badge/-NodeJS-&?style=for-the-badge&logo=nodedotjs&color=black" alt="Node logo" />
+  <img src="https://img.shields.io/badge/-Jest-&?style=for-the-badge&logo=jest&color=black" alt="Jest logo" />
+  <img src="https://img.shields.io/badge/-MongoDB-&?style=for-the-badge&logo=mongodb&color=black" alt="Mongo logo" />
+  <img src="https://img.shields.io/badge/-Express-&?style=for-the-badge&logo=express&color=black" alt="Express logo" />
+  <img src="https://img.shields.io/badge/-Heroku-&?style=for-the-badge&logo=heroku&color=black&logoColor=79589F" alt="Heroku logo" />
+  <img src="https://img.shields.io/badge/-Vercel-&?style=for-the-badge&logo=vercel&color=black" alt="Vercel logo" />
+</div>
+
 # Como rodar o projeto
 
 ## Clone este repositório
